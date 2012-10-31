@@ -25,7 +25,7 @@ function addFeed($title, $url){
 
 function checkFeeds(){
 	// Load in the feed config
-	$feeds = parse_ini_file("rss-sources.ini", true);
+	$feeds = parse_ini_file("config/rss-sources.ini", true);
 
 	// Mash the feeds into one
 	foreach ($feeds["RSS"] as $name=>$url) {

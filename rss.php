@@ -1,6 +1,5 @@
 
 <?php
-
 $link = mysqli_connect("localhost", "root", "superawesomepass", "port22feeds");
 
 /* check connection */
@@ -24,6 +23,4 @@ if ($result = mysqli_query($link, $query)) {
 
 /* close connection */
 mysqli_close($link);
-
-
 ?>
