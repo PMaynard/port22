@@ -1,7 +1,7 @@
 <?php
 
 function db(){
-	$con = mysql_connect("localhost","root","superawesomepass");
+	$con = mysql_connect("localhost","spfeeds","enter-super-ace-password-here12@23");
 	if (!$con)
 	  die('Could not connect: ' . mysql_error());
 	mysql_select_db("port22feeds", $con);

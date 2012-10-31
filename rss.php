@@ -1,6 +1,6 @@
 
 <?php
-$link = mysqli_connect("localhost", "root", "superawesomepass", "port22feeds");
+$link = mysqli_connect("localhost", "spfeeds", "enter-super-ace-password-here12@23", "port22feeds");
 
 /* check connection */
 if (mysqli_connect_errno()) {

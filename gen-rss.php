@@ -6,7 +6,7 @@ echo '<?xml version="1.0" encoding="ISO-8859-1" ?>'; ?>
 		<title>Port 22</title>
 		<link>http://port22.co.uk/feed</link>
 <?php
-$link = mysqli_connect("localhost", "root", "superawesomepass", "port22feeds");
+$link = mysql_connect("localhost","spfeeds","enter-super-ace-password-here12@23");
 
 /* check connection */
 if (mysqli_connect_errno()) {
