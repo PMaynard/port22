@@ -6,7 +6,7 @@ echo '<?xml version="1.0" encoding="ISO-8859-1" ?>'; ?>
 		<title>Port 22</title>
 		<link>http://port22.co.uk/feed</link>
 <?php
-$link = mysql_connect("localhost","spfeeds","enter-super-ace-password-here12@23");
+$link = mysqli_connect("localhost","spfeeds","enter-super-ace-password-here12@23", "port22feeds");
 
 /* check connection */
 if (mysqli_connect_errno()) {
@@ -14,7 +14,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query = "SELECT title, url FROM feeds ORDER BY timestamp DESC;";
+$query = "SELECT title, url FROM feeds ORDER BY timestamp DESC LIMIT 25;";
 if ($result = mysqli_query($link, $query)) {
     while ($row = mysqli_fetch_assoc($result)) { ?>
 
