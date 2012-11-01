@@ -15,7 +15,7 @@
 		<h2>Security News Feed.</h2>
 	</header>
 <?php
-$link = mysql_connect("localhost","spfeeds","enter-super-ace-password-here12@23");
+$link = mysqli_connect("localhost","spfeeds","enter-super-ace-password-here12@23", "port22feeds");
 
 /* check connection */
 if (mysqli_connect_errno()) {
