@@ -64,16 +64,16 @@
   <body>
 
     <div class="container-narrow">
-
+<!-- 
       <div class="masthead">
-<!--         <ul class="nav nav-pills pull-right">
+       <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#">About</a></li>
-        </ul> -->
+        </ul> 
         <h3 class="muted">#:Port 22</h3>
       </div>
 
-      <hr>
+      <hr> -->
 
       <div class="jumbotron">
         <h1>Security News Feed.</h1>
