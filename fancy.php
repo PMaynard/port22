@@ -1,3 +1,9 @@
+<?php 
+require_once('class.port22-news.php'); 
+$news = new port22News();
+$news->pie();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
