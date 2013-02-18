@@ -28,10 +28,6 @@ class port22News{
 		mysqli_close($this->link);
 	}
 
-	function getDBLink(){
-		return $this->link;
-	}
-
 	/* Returns a specific number of links. */
 	function getLinks($numb) {
 		/* Probally should sanitize $numb... */
@@ -45,6 +41,7 @@ class port22News{
 		}
 	}
 
+	/* Returns a specific number of links as an associative array */
 	function getLinksArray($numb) {
 		$tmp = array();
 		$query = "SELECT title, url, timestamp, hash FROM feeds ORDER BY timestamp DESC LIMIT $numb;";
