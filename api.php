@@ -1,7 +1,7 @@
+<pre>
 <?php 
 require_once('class.port22-news.php'); 
 $news = new port22News();
-$db = $news->getDBLink();
 
 /* Return something like this: 
 
@@ -21,13 +21,6 @@ $db = $news->getDBLink();
 		}
 	]
 }
-
 */
-echo "{\"links\":[";
-$query = "SELECT title, url, timestamp, hash FROM feeds ORDER BY timestamp DESC LIMIT 10;";
-if ($result = mysqli_query($db, $query))
-	while ($row = mysqli_fetch_assoc($result)) 
-		echo ",".json_encode($row);
-mysqli_free_result($result);
-echo "]}";
+var_dump(json_decode(json_encode(array("links" => $news->getLinksArray(10)))));
 ?>
