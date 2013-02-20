@@ -35,12 +35,13 @@
   </div>
 
   <hr>
-
     <div class="row-fluid marketing">
       <div class="span12">
 <?php $news->getLinks(10); ?>
       </div>
     </div>
+  <hr>
+  There are <?php echo $news->getTotalLinks(); ?> links.
   </div>
   </body>
 </html>
