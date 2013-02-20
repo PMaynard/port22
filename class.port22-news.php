@@ -34,8 +34,10 @@ class port22News{
 		$query = "SELECT title, url, timestamp, hash FROM feeds ORDER BY timestamp DESC LIMIT $numb;";
 		if ($result = mysqli_query($this->link, $query)) {
 			while ($row = mysqli_fetch_assoc($result)) {
+				echo "\t\t<div class=\"linkItem\" >\n";
 				echo "\t\t<h4><a target=\"_BLANK\" href=\"{$row["url"]}\">{$row["title"]}</a></h4>\n";
 				echo "\t\t<p><b>{$row["timestamp"]}</b> {$row["hash"]}</p>\n";
+				echo "\t\t</div>\n";
 			}
 			mysqli_free_result($result);
 		}

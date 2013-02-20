@@ -33,3 +33,14 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
+
+.linkItem:nth-child(odd) {
+  float: left;
+  clear: left;
+  width: 50%;
+}
+
+.linkItem:nth-child(even) {
+  float: right;
+  width: 50%;
+}
