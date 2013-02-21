@@ -41,7 +41,7 @@
       </div>
     </div>
   <hr>
-  There are <?php echo $news->getTotalLinks(); ?> links.
+  <p align=center>There are <b><?php echo $news->getTotalLinks(); ?></b> links.</p>
   </div>
   </body>
 </html>
