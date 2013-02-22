@@ -37,7 +37,7 @@
   <hr>
     <div class="row-fluid marketing">
       <div class="span12">
-<?php $news->getLinks(10); ?>
+<?php $news->getLinks(50); ?>
       </div>
     </div>
   <hr>
