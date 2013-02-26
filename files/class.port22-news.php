@@ -1,8 +1,7 @@
 <?php 
-/* TODO: Move outside of document root and set path require path. */
 
 /* Class returns a list of links from the database */
-class port22News{
+class port22News {
 
 	private $link;
 	private $configDetails;
