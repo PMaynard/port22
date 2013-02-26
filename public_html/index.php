@@ -1,8 +1,6 @@
 <?php 
   require_once('class.port22-news.php'); 
-  //require_once('class.port22-pages.php'); 
   $news = new port22News();
-  // $page = new port22Pages();
 ?>
 <!DOCTYPE html>
 <html lang="en">
