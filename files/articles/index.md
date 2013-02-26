@@ -1,7 +1,7 @@
 ---
 layout: main 
-title: Port 22
+title: Security News Feed.
 ---
 {% for post in site.posts offset %}
-  {{ post.date | date_to_string }} [{{ post.title }}]({{ site.url }}{{ post.url }})
+  {{ post.date | date_to_string }} [{{ post.title }}]({{ post.url }})
 {% endfor %}
