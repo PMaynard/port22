@@ -11,3 +11,5 @@ permalink:   /:title
 nav:
 - page: Articles
   permalink: /articles/
+- page: About
+  permalink: /about/
