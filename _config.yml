@@ -1,0 +1,8 @@
+source:      ./files/articles/
+url:     	 http://port22.co.uk/articles
+destination: ./public_html/articles
+
+future:      true
+lsi:         false
+markdown:    maruku
+permalink:   /:title 
