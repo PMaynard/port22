@@ -36,6 +36,7 @@ function checkFeeds(){
 	    for($i = 0; $i < count($title); $i++)
 	    	addFeed($title[$i], $link[$i]);    
 	} 
+	echo "EOF\n";
 }
 
 checkFeeds();
