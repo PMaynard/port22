@@ -3,5 +3,7 @@ TODO
 
  - Pagination
  - Infinte Scrolling
- - Add jekyll article system
  - Customize bootstrap
+ - GUUID/page for news link
+	- Comment on link/share
+	- Vote up 
