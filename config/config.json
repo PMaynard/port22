@@ -1,0 +1,8 @@
+{
+	"hostname": "localhost",
+	"user": "root",
+	"password": "",
+	"database": "port22feeds",
+	"table": "feeds",
+	"test": ["Pete", "Steve"]
+}
