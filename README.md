@@ -8,11 +8,11 @@ Runs a self contained __node__ server, and aggregates [RSS]() and [Atom]() feeds
 
 ## Usage
 Run as a user who has privileges to listen on port 80. e.g. root.
-	node port22.js
+>node port22.js
 
 ## Dependencies 
 - [Socket.io]() 
 - [Express]() 
 
-	npm install socket.io express
+> npm install socket.io express
 
