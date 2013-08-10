@@ -13,6 +13,7 @@ Run as a user who has privileges to listen on port 80. e.g. root.
 ## Dependencies 
 - [Socket.io]() 
 - [Express]() 
+- [MySQl](https://npmjs.org/package/mysql)
 
-> npm install socket.io express
+> npm install socket.io express mysql
 
