@@ -12,16 +12,6 @@ var connection = mysql.createConnection({
   database : config.database
 });
 
-connection.connect();
-
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-  if (err) throw err;
-
-  console.log('The solution is: ', rows[0].solution);
-});
-
-connection.end();
-
 server.listen(80);
 
 app.get('/', function (req, res) {
@@ -29,9 +19,11 @@ app.get('/', function (req, res) {
 });
 
 io.sockets.on('connection', function (socket) {
-	// TODO: Get articles from the database.
-  socket.emit('news', config.test );
-  socket.on('my other event', function (data) {
-    console.log(data);
+  connection.connect();
+  connection.query('SELECT title,url FROM feeds LIMIT 5', function(err, rows, fields) {
+  if (err) throw err;
+
+      socket.emit('feed', rows);
   });
+  connection.end();
 });
