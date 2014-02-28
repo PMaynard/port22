@@ -17,3 +17,10 @@ Run as a user who has privileges to listen on port 80. e.g. root.
 
 > npm install socket.io express mysql
 
+## Install
+
+    apt-get install nodejs npm mysql
+    mysql -u root < init-db.sql
+    gunzip port22.sql.gz
+    mysql -u root < port22.sql
+    npm install socket.io express mysql
