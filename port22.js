@@ -12,18 +12,15 @@ var connection = mysql.createConnection({
   database : config.database
 });
 
-server.listen(80);
+server.listen(8080);
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/html/index.html');
 });
 
 io.sockets.on('connection', function (socket) {
-  connection.connect();
   connection.query('SELECT title,url FROM feeds LIMIT 5', function(err, rows, fields) {
   if (err) throw err;
-
-      socket.emit('feed', rows);
+      socket.emit('init', rows);
   });
-  connection.end();
 });

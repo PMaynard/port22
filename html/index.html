@@ -9,7 +9,7 @@
 	<script>
 	  var socket = io.connect('http://localhost');
 
-	  socket.on('feed', function (data) {
+	  socket.on('init', function (data) {
 	  	for(var i in data)
 	    	$( ".feeds" ).clone().add( '<div id="title"><a href="' + data[i].url + '">' + data[i].title +'</a></div>' ).appendTo( document.body );
 	  });
