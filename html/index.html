@@ -11,8 +11,13 @@
 
 	  socket.on('init', function (data) {
 	  	for(var i in data)
-	    	$( ".feeds" ).clone().add( '<div id="title"><a href="' + data[i].url + '">' + data[i].title +'</a></div>' ).appendTo( document.body );
+	    	$( ".feeds" ).clone().add( '<div id="title"><a href="' + data[i].url + '">' + data[i].title  +'</a></div>' ).appendTo( document.body );
 	  });
+
+	  socket.on('update', function(data) {
+	  	$( ".feeds" ).clone().add( '<div id="title"><b>N </b><a href="' + data[0].url + '">' + data[0].title +'</a></div>' ).appendTo( document.body );
+	  })
+
 	</script>
 </head>
 <body>

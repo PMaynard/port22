@@ -3,5 +3,14 @@
 	"user": "root",
 	"password": "",
 	"database": "port22feeds",
-	"table": "feeds"
+	"table": "feeds",
+	"feeds_rss": [
+		"http://feeds.feedburner.com/darknethackers", 
+		"http://feeds.feedburner.com/SansInstituteNewsbites?format=xml", 
+		"http://feeds.feedburner.com/nakedsecurity?format=xml",
+		"http://feeds.feedburner.com/Securityweek?format=xml",
+		"http://feeds.pheedo.com/920",
+		"http://cryptanalysis.eu/blog/feed/"
+	],
+	"feeds_atom": ["http://www.theregister.co.uk/security/headlines.atom"]
 }
