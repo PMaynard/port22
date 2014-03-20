@@ -6,17 +6,18 @@
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 	<script src="/socket.io/socket.io.js"></script>
+
 	<script>
-	  var socket = io.connect('http://localhost');
+	  var socket = io.connect('http://port22.co.uk');
 
 	  socket.on('init', function (data) {
 	  	for(var i in data){
-			$('#feed').append('<div id="title"><a href="' + data[i].url + '">' + data[i].title  +'</a></div>');
+			$('#feed').prepend('<div id="title"><a href="' + data[i].url + '">' + data[i].title  +'</a></div>');
 	  	}
 	  });
 
 	  socket.on('update', function(data) {
-	  	$('#feed').append('<div id="title"><b>N </b><a href="' + data[0].url + '">' + data[0].title +'</a></div>');
+	  	$('#feed').prepend('<div id="title"><b>N </b><a href="' + data[0].url + '">' + data[0].title +'</a></div>');
 	  })
 
 	</script>
