@@ -15,8 +15,11 @@ Run as a user who has privileges to listen on port 80. e.g. root.
 - [Express](http://expressjs.com) 
 - [MySQl](https://npmjs.org/package/mysql)
 - [FeedParser](https://github.com/danmactough/node-feedparser)
+- Cron
 
-> npm install socket.io express mysql feedparser
+> npm install socket.io express mysql feedparser cron
+
+Or use `npm install` if you're happy with the package.json.
 
 ## Install
 
