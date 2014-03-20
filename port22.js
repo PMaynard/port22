@@ -17,16 +17,17 @@ var connection = mysql.createConnection({
 
 server.listen(8080);
 
+// Send the root homepage.
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/html/index.html');
 });
 
-var i = 0;
-
+// Proccess the feeds every n-blah
 new cron('10 * * * * *', function(){
     proccessFeeds();
 }, null, true );
 
+// Manually call the update function.
 app.get('/update', function (req, res) {
   proccessFeeds();
   res.send('Done');
@@ -35,12 +36,12 @@ app.get('/update', function (req, res) {
 // Debug message.
 app.get('/debug', function (req, res) {
 	var now = new Date(); 
-  io.sockets.emit('update', [{"title":"New Pigeon " + now, "url":"http://nationpigeon.com"}]);
+  io.sockets.emit('update', [{"title":"New Pigeon " + now, "url":"http://nationpigeon.com", "timestamp":+ now, "hash":"AKHDGSAJHDGASJ"}]);
   res.send('Sent Debug message;EOF;');
 });
 
 io.sockets.on('connection', function (socket) {
-  connection.query('SELECT title, url FROM feeds ORDER by id desc LIMIT 25', function(err, rows, fields) {
+  connection.query('SELECT title, url, timestamp, hash FROM feeds ORDER by id desc LIMIT 25', function(err, rows, fields) {
   if (err) throw err;
       socket.emit('init', rows);
   });
@@ -56,7 +57,7 @@ function addFeedItem(title, url, timestamp, hash) {
 			
 		if(undefined != result){
 			//console.log(result);
-			io.sockets.emit('update', [{"title":title, "url":url}]);
+			io.sockets.emit('update', [{"title":title, "url":url, "timestamp":timestamp, "hash":hash}]);
 		}
 	});
 }
