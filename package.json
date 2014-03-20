@@ -1,0 +1,31 @@
+{
+  "name": "Port 22",
+  "description": "The latest and greatest security feeds on the net.",
+  "version": "0.0.0",
+  "homepage": "https://github.com/PMaynard/port22",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PMaynard/port22.git"
+  },
+  "author": {
+    "name": "Pete Maynard",
+    "url": "http://port22.co.uk"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "main": "main",
+  "engines": {
+    "node": ">=0.6"
+  },
+  "dependencies": {
+    "socket.io": "*",
+    "express": "*",
+    "mysql": "*",
+    "feedparser": "*"
+  },
+  "readme": "",
+  "readmeFilename": "README.md"
+}
