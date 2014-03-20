@@ -12,5 +12,8 @@
 		"http://feeds.pheedo.com/920",
 		"http://cryptanalysis.eu/blog/feed/"
 	],
-	"feeds_atom": ["http://www.theregister.co.uk/security/headlines.atom"]
+	"feeds_atom": [
+		"http://www.theregister.co.uk/security/headlines.atom",
+		"https://www.schneier.com/blog/atom.xml"
+		]
 }
