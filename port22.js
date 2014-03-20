@@ -32,6 +32,13 @@ app.get('/update', function (req, res) {
   res.send('Done');
 });
 
+// Debug message.
+app.get('/debug', function (req, res) {
+	var now = new Date(); 
+  io.sockets.emit('update', [{"title":"New Pigeon " + now, "url":"http://nationpigeon.com"}]);
+  res.send('Sent Debug message;EOF;');
+});
+
 io.sockets.on('connection', function (socket) {
   connection.query('SELECT title, url FROM feeds ORDER by id desc LIMIT 25', function(err, rows, fields) {
   if (err) throw err;
