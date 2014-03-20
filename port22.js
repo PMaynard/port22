@@ -66,7 +66,7 @@ function parseFeed(feed_url) {
 	var req = request(feed_url), 
 		feedparser = new FeedParser();
 
-	req.on('error', function (error) { console.log("Request opa."); });
+	req.on('error', function (error) { console.log("Request opa - ", error); });
 
 	req.on('response', function (res) {
 		var stream = this;
@@ -74,7 +74,7 @@ function parseFeed(feed_url) {
 		stream.pipe(feedparser);
 	});
 
-	feedparser.on('error', function(error) { console.log("Feedparser opa."); });
+	feedparser.on('error', function(error) { console.log("Feedparser opa - ", error); });
 
 	feedparser.on('readable', function() {
 		var stream = this, item;
