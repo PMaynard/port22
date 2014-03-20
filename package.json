@@ -1,5 +1,5 @@
 {
-  "name": "Port 22",
+  "name": "Port22",
   "description": "The latest and greatest security feeds on the net.",
   "version": "0.0.0",
   "homepage": "https://github.com/PMaynard/port22",
@@ -24,7 +24,9 @@
     "socket.io": "*",
     "express": "*",
     "mysql": "*",
-    "feedparser": "*"
+    "feedparser": "*",
+    "request": "*",
+    "cron": "*"
   },
   "readme": "",
   "readmeFilename": "README.md"
