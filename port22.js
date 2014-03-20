@@ -4,6 +4,7 @@ var app       = require('express')()
   , mysql     = require('mysql')
   , FeedParser 	= require('feedparser')
   , request   = require('request')
+  , cron 	  = require('cron').CronJob
   // Application configuration file.
   , config    = require('./config/config.json')
 
@@ -20,13 +21,19 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/html/index.html');
 });
 
+var i = 0;
+
+new cron('10 * * * * *', function(){
+    proccessFeeds();
+}, null, true );
+
 app.get('/update', function (req, res) {
   proccessFeeds();
   res.send('Done');
 });
 
 io.sockets.on('connection', function (socket) {
-  connection.query('SELECT title, url FROM feeds ORDER by id desc LIMIT 5', function(err, rows, fields) {
+  connection.query('SELECT title, url FROM feeds ORDER by id desc LIMIT 25', function(err, rows, fields) {
   if (err) throw err;
       socket.emit('init', rows);
   });
