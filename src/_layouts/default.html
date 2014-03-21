@@ -24,17 +24,37 @@
 	{% if "/index.html" == page.url %}
 	<script src="http://port22.co.uk:8080/socket.io/socket.io.js"></script>
 	<script>
-		var socket = io.connect('http://port22.co.uk:8080');
+		var socket = io.connect('http://127.0.0.1:8080');
 
 		socket.on('init', function (data) {
-		for(var i in data){
-			$('#feed').append('<h4><a href="'+ data[i].url +'">'+ data[i].title +'</a></h4><p>'+data[i].timestamp+' '+data[i].hash+'</p>');
-		}
+			add(data);
 		});
 
 		socket.on('update', function(data) {
-			$('#feed').prepend('<h4><a href="'+ data[0].url +'">'+ data[0].title +'</a> <small>N</small></h4><p>'+data[0].timestamp+' '+data[0].hash+'</p>');
+			add(data);
 		})
+
+		function add(data){
+			for(var i in data){
+
+				var article_html = "";
+
+				article_html += '<h4><a href="' + data[i].url +'">'+ data[i].title +'</a></h4>';
+				if(data[i].author) article_html += '<p>Written By ' + data[i].author + '<p>';
+
+				if(data[i].categories){
+					var cat = data[i].categories.split(",");
+					for(var y in cat){
+						cat[y] = cat[y].replace (/'/g, "");
+						article_html += '<span class="label label-default">'+cat[y]+'</span> ';
+					}
+				}
+
+				article_html += '<p>'+data[i].timestamp+' ['+data[i].hash+']</p>';
+				
+				$('#feed').prepend(article_html);
+			}
+		}
 	</script>
 	{% endif %}
 </head>

@@ -17,9 +17,6 @@ var connection = mysql.createConnection({
 
 server.listen(8080);
 
-proccessFeeds();
-
-
 // Send the root homepage.
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public_html/index.html');
@@ -44,23 +41,29 @@ app.get('/debug', function (req, res) {
 });
 
 io.sockets.on('connection', function (socket) {
-  connection.query('SELECT title, url, timestamp, hash FROM feeds ORDER by id desc LIMIT 25', function(err, rows, fields) {
+  connection.query('SELECT title, url, timestamp, author, categories, hash FROM article ORDER by timestamp desc LIMIT 50', function(err, rows, fields) {
   if (err) throw err;
-      socket.emit('init', rows);
+      socket.emit('init', rows.reverse());
   });
 });
 
-function addFeedItem(title, url, timestamp, hash) {
-	var post  = {title: title, url: url, timestamp: "NOW()", hash: hash};
-	connection.query('INSERT INTO feeds SET ?', post , function(err, result) {
-		if(err){}
-			//console.log(err);
+function addFeedItem(title, url, timestamp, author, guid, comments, categories, hash) {
+	if(!timestamp) timestamp = "NOW()";
+
+	var post  = {title:title, url:url, timestamp:timestamp, author:author, guid:guid, comments:comments, categories:mysql.escape(categories), hash:hash};
+	
+	connection.query("INSERT INTO article SET ?", post , function(err, result) {
+		if(err){
+			// Hide the duplicate entry error 
+			// console.log(err);
+		}
 			
 		if(undefined != result){
-			//console.log(result);
-			io.sockets.emit('update', [{"title":title, "url":url, "timestamp":timestamp, "hash":hash}]);
+			console.log(result);
+			io.sockets.emit('update', [{"title":title, "url":url, "timestamp":timestamp, "author":author, "categories":categories, "hash":hash}]);
 		}
 	});
+	
 }
 
 function parseFeed(feed_url) {
@@ -79,43 +82,40 @@ function parseFeed(feed_url) {
 
 	feedparser.on('readable', function() {
 		var stream = this, item;
-		while (item = stream.read()) {
-			if(1)
-			{	
-				// FEED
-				console.log(" -- FEED --");
-				console.log("Feed Title:  	", item.meta.title);
-				console.log("Feed Description:  ", item.meta.description);
-				console.log("Site Link:  		", item.meta.link);
-				console.log("Feed Link:  		", item.meta.xmlurl);
-				console.log("Date:  		", item.meta.date); 	// First
-				console.log("Pubdate:  	", item.meta.pubdate);		// Second; Third NOW() 
-				console.log("Author:  	", item.meta.author);
-				console.log("Copyright:  	", item.meta.copyright);
-				console.log("Generator: 	", item.meta.generator);
-				console.log("Categories:  	", item.meta.categories);
-				// ARTICLE
-				console.log(" -- ARTICLE --");
-				console.log("Title: 		", item.title);
-				console.log("Link:  		", (!item.origlink) ? item.link : item.origlink);
-				console.log("Date:  		", item.date); 	
-				console.log("Pubdate:  	", item.pubdate);
-				console.log("Author:  	", item.author);
-				console.log("GUID:  	", item.guid);
-				console.log("Comments:  	", item.comments);
-				console.log("Categories:  	", item.categories);			
-				
-				console.log("-----------------");
-			}
-
-	    	// addFeedItem(item.title, item.link, item.date, require('crypto').createHash('md5').update(item.title + item.link).digest("hex"))
+		while (item = stream.read()) {	
+			// FEED
+			// console.log(" -- FEED --");
+			// console.log("Feed Title:  	", item.meta.title);
+			// console.log("Feed Description:  ", item.meta.description);
+			// console.log("Site Link:  		", item.meta.link);
+			// console.log("Feed Link:  		", item.meta.xmlurl);
+			// console.log("Date:  		", item.meta.date); 	// First
+			// console.log("Pubdate:  	", item.meta.pubdate);		// Second; Third NOW() 
+			// console.log("Author:  	", item.meta.author);
+			// console.log("Copyright:  	", item.meta.copyright);
+			// console.log("Generator: 	", item.meta.generator);
+			// console.log("Categories:  	", item.meta.categories);
+			// ARTICLE
+			// console.log(" -- ARTICLE --");
+			// console.log("Title: 		", item.title);
+			// console.log("Link:  		", (!item.origlink) ? item.link : item.origlink);
+			// console.log("Date:  		", item.date); 	
+			// console.log("Pubdate:  	", item.pubdate);
+			// console.log("Author:  	", item.author);
+			// console.log("GUID:  	", item.guid);
+			// console.log("Comments:  	", item.comments);
+			// console.log("Categories:  	", item.categories);			
+			// console.log("-----------------");
+			var link = (!item.origlink) ? item.link : item.origlink,
+				hash = require('crypto').createHash('md5').update(item.title + link ).digest("hex");
+	    	addFeedItem(item.title, link, (!item.date) ? item.pubdate : item.date, item.author, item.guid, item.comments, item.categories, hash)
 		}
 	});
 }
 
 function proccessFeeds() {
-	for(var i in config.feeds_rss) {
-		parseFeed(config.feeds_rss[i]);
+	for(var i in config.feed_list) {
+		parseFeed(config.feed_list[i]);
 	}
 }
 
