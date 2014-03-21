@@ -15,6 +15,8 @@ var connection = mysql.createConnection({
   database : config.database
 });
 
+/* -------------------------------------------------- */
+
 server.listen(8080);
 
 // Send the root homepage.
@@ -22,23 +24,27 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public_html/index.html');
 });
 
-// Proccess the feeds every n-blah
-new cron('10 * * * * *', function(){
-    proccessFeeds();
-}, null, true );
-
 // Manually call the update function.
 app.get('/update', function (req, res) {
-  proccessFeeds();
-  res.send('Done');
+	proccessFeeds();
+	res.send('Done');
 });
 
 // Debug message.
 app.get('/debug', function (req, res) {
 	var now = new Date(); 
-  io.sockets.emit('update', [{"title":"New Pigeon " + now, "url":"http://nationpigeon.com", "timestamp":+ now, "hash":"AKHDGSAJHDGASJ"}]);
-  res.send('Sent Debug message;EOF;');
+	io.sockets.emit('update', [{"title":"New Pigeon " + now, "url":"http://nationpigeon.com", "timestamp":+ now, "hash":"AKHDGSAJHDGASJ"}]);
+	res.send('Sent Debug message;EOF;');
 });
+
+/* -------------------------------------------------- */
+
+// Process the feeds every n-blah
+new cron('10 * * * * *', function(){
+    proccessFeeds();
+}, null, true );
+
+/* -------------------------------------------------- */
 
 io.sockets.on('connection', function (socket) {
   connection.query('SELECT title, url, timestamp, hash FROM feeds ORDER by id desc LIMIT 25', function(err, rows, fields) {
@@ -47,45 +53,46 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-function addFeedItem(title, url, timestamp, hash) {
-	if(!timestamp) timestamp = "NOW()";
-
-	var post  = {title: title, url: url, timestamp: timestamp, hash: hash};
-	connection.query('INSERT INTO feeds SET ?', post , function(err, result) {
-		if(err){}
-			//console.log(err);
-			
-		if(undefined != result){
-			//console.log(result);
-			io.sockets.emit('update', [{"title":title, "url":url, "timestamp":timestamp, "hash":hash}]);
-		}
-	});
-}
-
-function parseFeed(feed_url) {
-	var req = request(feed_url), 
-		feedparser = new FeedParser();
-
-	req.on('error', function (error) { console.log("Request opa - ", error); });
-
-	req.on('response', function (res) {
-		var stream = this;
-		if (res.statusCode != 200) return this.emit('error', new Error('Bad status code'));
-		stream.pipe(feedparser);
-	});
-
-	feedparser.on('error', function(error) { console.log("Feedparser opa - ", error); });
-
-	feedparser.on('readable', function() {
-		var stream = this, item;
-		while (item = stream.read()) {
-	    	addFeedItem(item.title, item.link, item.date, require('crypto').createHash('md5').update(item.title + item.link).digest("hex"))
-		}
-	});
-}
 
 function proccessFeeds() {
+	// Get each feed in the configuration.
+	var rtn = [];
 	for(var i in config.feeds_rss) {
-		parseFeed(config.feeds_rss[i]);
+		(function(i) {
+			var req = request(config.feeds_rss[i]), feedparser = new FeedParser();
+
+			req.on('error', function (error) { console.log("OPA: Request - ", error); });
+
+			req.on('response', function (res) {
+				var stream = this;
+				if (res.statusCode != 200) return this.emit('error', new Error('Bad status code'));
+				stream.pipe(feedparser);
+			});
+
+			feedparser.on('error', function(error) { console.log("OPA: Feedparser - ", error); });
+
+			feedparser.on('readable', function() {
+				// Parse each item.
+				var stream = this, item;
+				while (item = stream.read()) {
+					if(!item.timestamp) item.timestamp = "NOW()";
+					// Insert into database.
+					if(!item.title)
+						console.log("GOTYA");
+					var post  = {title: item.title, url: item.url, timestamp: item.timestamp, hash: require('crypto').createHash('md5').update(item.title + item.link).digest("hex")};
+					connection.query('INSERT INTO feeds SET ?', post , function(err, result) {
+						if(err){
+							console.log("OPA: ", err);
+						}else if(undefined != result){
+							// Update site with any new items.
+							var data = [{"title": item.title, "url": item.url, "timestamp": item.timestamp, "hash": require('crypto').createHash('md5').update(item.title + item.link).digest("hex")}];
+							io.sockets.emit('update', data);
+							rtn.push(data);
+						}
+					});
+				}
+			});
+		})(i);
 	}
+	console.log("RTN ", rtn);
 }
