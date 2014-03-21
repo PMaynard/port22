@@ -17,15 +17,18 @@ var connection = mysql.createConnection({
 
 server.listen(8080);
 
+proccessFeeds();
+
+
 // Send the root homepage.
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public_html/index.html');
 });
 
-// Proccess the feeds every n-blah
-new cron('10 * * * * *', function(){
-    proccessFeeds();
-}, null, true );
+// // Proccess the feeds every n-blah
+// new cron('10 * * * * *', function(){
+//     proccessFeeds();
+// }, null, true );
 
 // Manually call the update function.
 app.get('/update', function (req, res) {
@@ -48,9 +51,7 @@ io.sockets.on('connection', function (socket) {
 });
 
 function addFeedItem(title, url, timestamp, hash) {
-	if(!timestamp) timestamp = "NOW()";
-
-	var post  = {title: title, url: url, timestamp: timestamp, hash: hash};
+	var post  = {title: title, url: url, timestamp: "NOW()", hash: hash};
 	connection.query('INSERT INTO feeds SET ?', post , function(err, result) {
 		if(err){}
 			//console.log(err);
@@ -66,7 +67,7 @@ function parseFeed(feed_url) {
 	var req = request(feed_url), 
 		feedparser = new FeedParser();
 
-	req.on('error', function (error) { console.log("Request opa - ", error); });
+	req.on('error', function (error) { console.log("OPA: [Request] ", error, feed_url); });
 
 	req.on('response', function (res) {
 		var stream = this;
@@ -74,12 +75,40 @@ function parseFeed(feed_url) {
 		stream.pipe(feedparser);
 	});
 
-	feedparser.on('error', function(error) { console.log("Feedparser opa - ", error); });
+	feedparser.on('error', function(error) { console.log("OPA: [Feedparser] ", error); });
 
 	feedparser.on('readable', function() {
 		var stream = this, item;
 		while (item = stream.read()) {
-	    	addFeedItem(item.title, item.link, item.date, require('crypto').createHash('md5').update(item.title + item.link).digest("hex"))
+			if(1)
+			{	
+				// FEED
+				console.log(" -- FEED --");
+				console.log("Feed Title:  	", item.meta.title);
+				console.log("Feed Description:  ", item.meta.description);
+				console.log("Site Link:  		", item.meta.link);
+				console.log("Feed Link:  		", item.meta.xmlurl);
+				console.log("Date:  		", item.meta.date); 	// First
+				console.log("Pubdate:  	", item.meta.pubdate);		// Second; Third NOW() 
+				console.log("Author:  	", item.meta.author);
+				console.log("Copyright:  	", item.meta.copyright);
+				console.log("Generator: 	", item.meta.generator);
+				console.log("Categories:  	", item.meta.categories);
+				// ARTICLE
+				console.log(" -- ARTICLE --");
+				console.log("Title: 		", item.title);
+				console.log("Link:  		", (!item.origlink) ? item.link : item.origlink);
+				console.log("Date:  		", item.date); 	
+				console.log("Pubdate:  	", item.pubdate);
+				console.log("Author:  	", item.author);
+				console.log("GUID:  	", item.guid);
+				console.log("Comments:  	", item.comments);
+				console.log("Categories:  	", item.categories);			
+				
+				console.log("-----------------");
+			}
+
+	    	// addFeedItem(item.title, item.link, item.date, require('crypto').createHash('md5').update(item.title + item.link).digest("hex"))
 		}
 	});
 }
@@ -89,3 +118,5 @@ function proccessFeeds() {
 		parseFeed(config.feeds_rss[i]);
 	}
 }
+
+// (x > 10) ? true : false
