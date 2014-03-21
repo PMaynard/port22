@@ -25,7 +25,7 @@
 
 		socket.on('init', function (data) {
 		for(var i in data){
-			$('#feed').prepend('<h4><a href="'+ data[i].url +'">'+ data[i].title +'</a></h4><p>'+data[i].timestamp+' '+data[i].hash+'</p>');
+			$('#feed').append('<h4><a href="'+ data[i].url +'">'+ data[i].title +'</a></h4><p>'+data[i].timestamp+' '+data[i].hash+'</p>');
 		}
 		});
 
