@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Port 22 - Security News Feed.</title>
+ <link href="http://port22.co.uk/articles.xml" rel="self"/>
+ <link href="http://port22.co.uk/"/>
+ <updated>2014-03-21T00:12:59+00:00</updated>
+ <id>http://port22.co.uk/</id>
+ <author>
+   <name>Port 22</name>
+   <email>people@port22.co.uk</email>
+ </author>
+
+ 
+ <entry>
+   <title>Connect to Eduroam using wpa_supplicant</title>
+   <link href="http://port22.co.uk/articles/connect-to-eduroam-using-wpa_supplicant"/>
+   <updated>2013-01-24T17:08:58+00:00</updated>
+   <id>http://port22.co.uk/connect-to-eduroam-using-wpa_supplicant</id>
+ </entry>
+ 
+ <entry>
+   <title>Webserver File Permissions</title>
+   <link href="http://port22.co.uk/articles/webserver-file-permissions"/>
+   <updated>2012-08-06T17:23:21+01:00</updated>
+   <id>http://port22.co.uk/webserver-file-permissions</id>
+ </entry>
+ 
+ <entry>
+   <title>SSH and tsocks</title>
+   <link href="http://port22.co.uk/articles/ssh-and-tsocks"/>
+   <updated>2012-06-25T13:10:49+01:00</updated>
+   <id>http://port22.co.uk/ssh-and-tsocks</id>
+ </entry>
+ 
+ <entry>
+   <title>iptables reroute to another IP</title>
+   <link href="http://port22.co.uk/articles/iptables-reroute-to-another-ip"/>
+   <updated>2011-01-22T20:22:08+00:00</updated>
+   <id>http://port22.co.uk/iptables-reroute-to-another-ip</id>
+ </entry>
+ 
+ <entry>
+   <title>Simple WEP Cracking</title>
+   <link href="http://port22.co.uk/articles/simple-wep-cracking"/>
+   <updated>2010-06-18T19:37:17+01:00</updated>
+   <id>http://port22.co.uk/simple-wep-cracking</id>
+ </entry>
+ 
+
+</feed>

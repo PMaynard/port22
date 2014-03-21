@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Port 22: {{ page.title }}</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+  <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+<div class="container">
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="/">Home</a></li>
+        {% for n in site.nav %}
+            <li><a href="{{ n.permalink }}">{{ n.page }}</a></li>
+        {% endfor %}
+    </ul>
+    <h3 class="text-muted">Port 22</h3>
+  </div>
+
+  <div class="jumbotron">
+    <h1>Port 22</h1>
+    <p class="lead">The latest and greatest security feeds on the net.</p>
+  </div>
+
+  {{ content }}
+
+  <div class="footer">
+  <p>CC-BY Port22 | There are a total of <b>
+{% for post in site.posts %}
+   {% capture post_count %} {{ post_count | plus: 1 }} {% endcapture %}
+{% endfor %}
+{{ post_count }}</b> articles.</p>
+  </div>
+
+  </div> <!-- /container -->
+
+</body>
+</html>

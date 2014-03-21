@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Port 22: SSH and tsocks</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+  <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+<div class="container">
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="/">Home</a></li>
+        
+            <li><a href="/articles/">Articles</a></li>
+        
+            <li><a href="/about/">About</a></li>
+        
+    </ul>
+    <h3 class="text-muted">Port 22</h3>
+  </div>
+
+  <div class="jumbotron">
+    <h1>Port 22</h1>
+    <p class="lead">The latest and greatest security feeds on the net.</p>
+  </div>
+
+    <h2>SSH and tsocks</h2>
+  <hr>
+    <div class="row-fluid marketing">
+      <div class="span12">
+      	<p>Install tsocks on your client machine. Tsocks is a application which replaces all connect() calls with it&#8217;s own, which means you can run any application though the server/proxy even if it dosent have support for proxy/SOCKS.</p>
+
+<pre><code>apt-get install tsocks</code></pre>
+
+<p>Update <strong>/etc/tsocks.conf</strong> server = 127.0.0.1 server_port = 1080</p>
+
+<p>These will need to match the SSH setting, as seen later on.</p>
+
+<p>You might want to configure local networks, but that&#8217;s up to you. Local allows you to directly access the address, instead of through the server/proxy.</p>
+
+<p>Setup your SSH connection to your sever.</p>
+
+<pre><code>ssh -w  -D 1080 user@server</code></pre>
+
+<p>That&#8217;s it, you should be all set up. To run an application though the server/proxy simply open a terminal and enter:</p>
+
+<pre><code>tsocks &lt;application&gt;</code></pre>
+
+<p>For example force firefox to use the server/proxy</p>
+
+<pre><code>tsocks firefox https://www.google.co.uk/search?q=whats+my+ip</code></pre>
+      </div>
+    </div
+
+  <div class="footer">
+  <p>CC-BY Port22 | There are a total of <b>
+
+   
+
+   
+
+   
+
+   
+
+   
+
+ 5 </b> articles.</p>
+  </div>
+
+  </div> <!-- /container -->
+
+</body>
+</html>

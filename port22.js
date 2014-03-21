@@ -19,7 +19,7 @@ server.listen(8080);
 
 // Send the root homepage.
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/html/index.html');
+  res.sendfile(__dirname + '/public_html/index.html');
 });
 
 // Proccess the feeds every n-blah

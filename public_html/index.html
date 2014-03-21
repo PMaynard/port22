@@ -18,10 +18,10 @@
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	<script src="/socket.io/socket.io.js"></script>
+	<script src="http://port22.co.uk:8080/socket.io/socket.io.js"></script>
 
 	<script>
-		var socket = io.connect('http://port22.co.uk');
+		var socket = io.connect('http://port22.co.uk:8080');
 
 		socket.on('init', function (data) {
 		for(var i in data){
@@ -41,8 +41,8 @@
 	<div class="header">
 		<ul class="nav nav-pills pull-right">
 			<li class="active"><a href="/">Home</a></li>
-			<li><a href="/update">Update</a></li>
-			<li><a href="/debug">Debug</a></li>
+			<li><a href="http://port22.co.uk:8080/update">Update</a></li>
+			<li><a href="http://port22.co.uk:8080/debug">Debug</a></li>
 		</ul>
 		<h3 class="text-muted">Port 22</h3>
 	</div>

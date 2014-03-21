@@ -1,0 +1,15 @@
+source: ./articles/
+baseurl: http://port22.co.uk
+url: http://port22.co.uk/articles
+destination: ./public_html/articles
+
+future: true
+lsi: false
+markdown: maruku
+permalink: /:title
+
+nav:
+- page: Articles
+  permalink: /articles/
+- page: About
+  permalink: /about/
