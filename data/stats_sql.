@@ -1,0 +1,9 @@
+// Count all domains.
+SELECT  SUBSTRING_INDEX(url, '/', 3), COUNT(*) 
+FROM    feeds 
+GROUP BY 1
+
+// Group by timestamp
+SELECT  timestamp, COUNT(*)
+FROM    feeds
+GROUP by timestamp
