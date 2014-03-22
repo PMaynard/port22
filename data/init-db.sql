@@ -1,3 +1,4 @@
+drop database port22feeds;
 CREATE DATABASE port22feeds; 
 USE port22feeds;
 
