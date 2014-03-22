@@ -22,10 +22,10 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public_html/index.html');
 });
 
-// // Proccess the feeds every n-blah
-// new cron('10 * * * * *', function(){
-//     proccessFeeds();
-// }, null, true );
+// Proccess the feeds every n-blah
+new cron('10 * * * * *', function(){
+    proccessFeeds();
+}, null, true );
 
 // Manually call the update function.
 app.get('/update', function (req, res) {
@@ -108,7 +108,7 @@ function parseFeed(feed_url) {
 			// console.log("-----------------");
 			var link = (!item.origlink) ? item.link : item.origlink,
 				hash = require('crypto').createHash('md5').update(item.title + link ).digest("hex");
-	    	addFeedItem(item.title, link, (!item.date) ? item.pubdate : item.date, item.author, item.guid, item.comments, item.categories, hash)
+	    	addFeedItem(item.title, link, (!item.pubdate) ?  item.date : item.pubdate, item.author, item.guid, item.comments, item.categories, hash)
 		}
 	});
 }
