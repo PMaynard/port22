@@ -24,7 +24,7 @@
 	{% if "/index.html" == page.url %}
 	<script src="http://port22.co.uk:8080/socket.io/socket.io.js"></script>
 	<script>
-		var socket = io.connect('http://127.0.0.1:8080');
+		var socket = io.connect('http://port22.co.uk:8080');
 
 		socket.on('init', function (data) {
 			add(data);
@@ -80,11 +80,7 @@
 	{{ content }}
 
 	<div class="footer">
-	<p>CC-BY Port22 | There are a total of <b>
-	{% for post in site.posts %}
-	{% capture post_count %} {{ post_count | plus: 1 }} {% endcapture %}
-	{% endfor %}
-	{{ post_count }}</b> articles.</p>
+	<p>CC-BY Port22</p>
 	</div>
 
 </div> <!-- /container -->
