@@ -8,7 +8,7 @@
 	<meta name="author" content="">
 
 	<!-- Is this even how you do it noer days?? -->
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://port22.co.uk/feed.xml" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ site.url }}feed.xml" />
 
 	<title>Port 22: {{ page.title }}</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -22,15 +22,15 @@
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	{% if "/index.html" == page.url %}
-	<script src="http://port22.co.uk:8080/socket.io/socket.io.js"></script>
+	<script src="{{ site.socket_url }}socket.io/socket.io.js"></script>
 	<script>
-		var socket = io.connect('http://port22.co.uk:8080');
+		var socket = io.connect('{{ site.socket_url }}');
 
 		socket.on('init', function (data) {
 			add(data);
 		});
 
-		socket.on('update', function(data) {
+		socket.on('update', function (data) {
 			add(data);
 		})
 

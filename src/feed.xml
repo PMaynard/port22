@@ -5,10 +5,10 @@ layout: nil
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Port 22 - Security News Feed.</title>
- <link href="{{ site.baseurl }}/articles.xml" rel="self"/>
- <link href="{{ site.baseurl }}/"/>
+ <link href="{{ site.url }}feed.xml" rel="self"/>
+ <link href="{{ site.url }}"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>{{ site.baseurl }}/</id>
+ <id>{{ site.url }}/</id>
  <author>
    <name>Port 22</name>
    <email>people@port22.co.uk</email>
@@ -17,9 +17,9 @@ layout: nil
  {% for post in site.posts limit:50 %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="{{ site.url }}{{ post.url }}"/>
+   <link href="{{ site.url }}{{ post.url | remove:'/' }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>{{ site.baseurl }}{{ post.id }}</id>
+   <id>{{ site.url }}{{ post.id  | remove:'/' }}</id>
  </entry>
  {% endfor %}
 

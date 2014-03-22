@@ -1,6 +1,6 @@
 source: src/
-baseurl: http://port22.co.uk
-url: http://port22.co.uk/
+url: http://127.0.0.1/
+socket_url: http://127.0.0.1:8080/
 destination: ./public_html/
 
 future: true

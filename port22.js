@@ -41,7 +41,7 @@ app.get('/debug', function (req, res) {
 });
 
 io.sockets.on('connection', function (socket) {
-  connection.query('SELECT title, url, timestamp, author, categories, hash FROM article ORDER by timestamp desc LIMIT 50', function(err, rows, fields) {
+  connection.query('SELECT title, url, timestamp, author, categories, hash FROM article ORDER by timestamp desc LIMIT 10', function(err, rows, fields) {
   if (err) throw err;
       socket.emit('init', rows.reverse());
   });
