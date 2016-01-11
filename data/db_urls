@@ -1,0 +1,11 @@
+{"url":"https://ics-cert.us-cert.gov/alerts/alerts.xml","name":"ICS-Cert Alerts","_id":"2DuvOhtD4MjxRiKy","createdAt":{"$$date":1452515560294},"updatedAt":{"$$date":1452515560294}}
+{"url":"https://ics-cert.us-cert.gov/advisories/advisories.xml","name":"ICS-Cert Advisories","_id":"5DuvuIhiEL1ERybK","createdAt":{"$$date":1452515560294},"updatedAt":{"$$date":1452515560294}}
+{"url":"http://feeds.trendmicro.com/Anti-MalwareBlog?format=xml","name":"Trend Micro","_id":"Fang4veiiKqhVx4H","createdAt":{"$$date":1452515560291},"updatedAt":{"$$date":1452515560291}}
+{"url":"http://krebsonsecurity.com/feed/","name":"Krebs on Security","_id":"Lc473KnbGFcuh5gg","createdAt":{"$$date":1452515560293},"updatedAt":{"$$date":1452515560293}}
+{"url":"http://feeds.feedburner.com/darknethackers","name":"Dark Net Hackers","_id":"LkUAXoFXt7gduga2","createdAt":{"$$date":1452515560293},"updatedAt":{"$$date":1452515560293}}
+{"url":"https://securelist.com/feed/","name":"Secure List","_id":"p0zgWtHrRQs4RqBr","createdAt":{"$$date":1452515560293},"updatedAt":{"$$date":1452515560293}}
+{"url":"http://cryptanalysis.eu/blog/feed/","name":"Cryptanalysis","_id":"sOZK5jB3oEfyAQnl","createdAt":{"$$date":1452515560294},"updatedAt":{"$$date":1452515560294}}
+{"url":"https://ics-cert.us-cert.gov/monitors/monitors.xml","name":"ICS-Cert Monitors","_id":"vlDKJ5fBK14nKeS2","createdAt":{"$$date":1452515560295},"updatedAt":{"$$date":1452515560295}}
+{"url":"https://www.schneier.com/blog/atom.xml","name":"Schneier on Security","_id":"wI6NsxmDr8ljXLcY","createdAt":{"$$date":1452515560292},"updatedAt":{"$$date":1452515560292}}
+{"url":"http://blog.invisiblethings.org/feed.xml","name":"Invisible Things Labs","_id":"xH2s0p6J1harayWT","createdAt":{"$$date":1452515560293},"updatedAt":{"$$date":1452515560293}}
+{"$$indexCreated":{"fieldName":"url","unique":true,"sparse":false}}

@@ -1,6 +1,2 @@
-# Yeah you can work out my directory structure :P
-public_html/i
-public_html/images/
-public_html/learn-tango/
-public_html/t/
-public_html/net.png
+node_modules
+data/
