@@ -59,8 +59,9 @@ function parase_feed(url, name) {
 	feed(url, function(err, articles) {
 		if (err){
 			util.log(err);
+		}else{
+			add_articles(url, name, articles);
 		};
-		add_articles(url, name, articles);
 	});
 }
 
