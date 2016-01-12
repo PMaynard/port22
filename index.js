@@ -60,7 +60,7 @@ function parase_feed(url, name) {
 			util.log(err);
 		}else{
 			add_articles(url, name, articles);
-		}
+		};
 	});
 }
 
