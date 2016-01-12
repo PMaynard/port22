@@ -1,5 +1,5 @@
 var SERVER_ADDRESS = "http://localhost";
-var SERVER_PORT    = 8000;
+var SERVER_PORT    = 8080;
 var socket = io(SERVER_ADDRESS + ":" + SERVER_PORT);
 
 socket.on('connect', function () {

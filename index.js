@@ -18,19 +18,16 @@ db_news.ensureIndex({ fieldName: 'source_url' }, err_constraints());
 
 db_urls.ensureIndex({ fieldName: 'url',  unique: true }, function() {});
 
-util.log("Initial Database Update...");
 check_feeds();
 
 /* Listen for websocket connections */
 io.serveClient(false);
-io.listen(8000);
+io.listen(8080);
 util.log("Server listening on port 8000.");
 
 /* Check feeds every 5min (300,000ms) */
-setTimeout(function() {
-	util.log("Scheduled Database Update...")
-	check_feeds();
-}, 300000);
+//setTimeout(check_feeds, 300000);
+setTimeout(check_feeds, 10000);
 
 io.on('connection', function(client) {
 	client.on('get_articles', function(data) {
@@ -43,24 +40,27 @@ io.on('connection', function(client) {
 });
 
 function check_feeds() {
+	util.log("Database Update...");
 	db_urls.find({}, function (err, feed_list) {
 		if(err){
 			util.log(err.message)
-		}
-
-		for(var i in feed_list) {
-			parase_feed(feed_list[i].url, feed_list[i].name)
+		}else{
+			for(var i in feed_list) {
+				parase_feed(feed_list[i].url, feed_list[i].name)
+			}
 		}
 	});
 	util.log("Database Update Complete."); 
 }
 
 function parase_feed(url, name) {
+	util.log("DEBUG: " + name);
 	feed(url, function(err, articles) {
 		if (err){
 			util.log(err);
-		};
-		add_articles(url, name, articles);
+		}else{
+			add_articles(url, name, articles);
+		}
 	});
 }
 
