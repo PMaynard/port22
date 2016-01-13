@@ -1,4 +1,4 @@
-var SERVER_ADDRESS = "https://port22.co.uk/";
+var SERVER_ADDRESS = "/";
 var socket = io(SERVER_ADDRESS);
 
 socket.on('connect', function () {
