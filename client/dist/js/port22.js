@@ -1,8 +1,9 @@
 var SERVER_ADDRESS = "/";
 var socket = io(SERVER_ADDRESS);
+var feed_load = false;
 
 socket.on('connect', function () {
-	socket.emit('get_articles', {n: 300});
+	socket.emit('get_articles', {n: 300, feed: false});
 	socket.emit('get_feeds_list');
 
 	socket.on('article', function (data) {
@@ -17,10 +18,9 @@ socket.on('connect', function () {
 	});
 
 	socket.on('feed_list', function (data) {
-		console.log(data)
 		$("ul#feedlist").empty();
 		for(var i in data) {
-			$("<li><a href=\"{0}\">{1}</a></li>".format([data[i].url, data[i].name])).appendTo('ul#feedlist');
+			$("<li><a href=\"#\">{0}</a></li>".format([data[i].name, i])).appendTo('ul#feedlist');
 		}
 	}); 
 });
