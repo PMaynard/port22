@@ -2,7 +2,8 @@ var SERVER_ADDRESS = "https://port22.co.uk/";
 var socket = io(SERVER_ADDRESS);
 
 socket.on('connect', function () {
-	socket.emit('get_articles', {n: 30});
+	socket.emit('get_articles', {n: 300});
+	socket.emit('get_feeds_list');
 
 	socket.on('article', function (data) {
 		display_article(data);
@@ -14,6 +15,14 @@ socket.on('connect', function () {
 			display_article(data[i]);
 		};
 	});
+
+	socket.on('feed_list', function (data) {
+		console.log(data)
+		$("ul#feedlist").empty();
+		for(var i in data) {
+			$("<li><a href=\"{0}\">{1}</a></li>".format([data[i].url, data[i].name])).appendTo('ul#feedlist');
+		}
+	}); 
 });
 
 socket.on('disconnect', function() {
@@ -21,12 +30,12 @@ socket.on('disconnect', function() {
 });
 
 function display_article(article){
-	$("<p><a href=\"{1}\">{0}</a><br />{2}<br />{3}<hr>{4}</p>".format(
+	$("<p>{2} - <a href=\"{1}\">{0}</a> <br />{3}</p>".format(
 		[article.title
 		, article.link
-		, article.createdAt
+		, time_ago_in_words(article.createdAt)
 		, article.source_name
-		, article.content
+		//, article.content
 		])).prependTo('div#news'); 
 };
 

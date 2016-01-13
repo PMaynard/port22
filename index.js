@@ -30,6 +30,10 @@ function init(){
 			get_articles(client, data.n);
 		});
 
+		client.on('get_feeds_list', function() {
+			get_feeds(client);
+		});
+
 		client.on("disconnect", function() {
 			util.log("Client disconnected: " + client.id);
 		});
@@ -95,6 +99,12 @@ function get_articles(client, n) {
 		client.emit('articles', docs.reverse());
 		util.log("Handling get_articles: " + n)
 	});
+}
+
+function get_feeds(client) {
+        db_urls.find({}, function (err, docs) {
+                client.emit('feed_list', docs);
+        });
 }
 
 /* Helper Functions */
