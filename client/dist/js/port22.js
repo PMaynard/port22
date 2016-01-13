@@ -1,6 +1,5 @@
-var SERVER_ADDRESS = "http://localhost";
-var SERVER_PORT    = 8080;
-var socket = io(SERVER_ADDRESS + ":" + SERVER_PORT);
+var SERVER_ADDRESS = "https://port22.co.uk/";
+var socket = io(SERVER_ADDRESS);
 
 socket.on('connect', function () {
 	socket.emit('get_articles', {n: 30});
@@ -10,7 +9,7 @@ socket.on('connect', function () {
 	});
 
 	socket.on('articles', function (data) {
-		console.log("len: " + data.length)
+		$("div#news").empty();
 		for(var i in data){
 			display_article(data[i]);
 		};

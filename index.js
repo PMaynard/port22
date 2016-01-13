@@ -11,7 +11,7 @@ var util = require("util");
 var feed = require("feed-read");
 
 var MAX_NUMBER_REQUEST = 30;
-var PORT = 8080;
+var PORT = 8010;
 
 /* Database Indeices */
 db_news.ensureIndex({ fieldName: 'title',  unique: true }, err_constraints());
@@ -35,8 +35,8 @@ function init(){
 		});
 	});
 
-	/* Check feeds every 5min (300,000ms) */
-	setInterval(check_feeds, 300000);
+	/* Check feeds every 5min (300,000ms) 40min (2,400,000) */
+	setInterval(check_feeds, 2400000);
 }
 
 function check_feeds() {
@@ -91,8 +91,8 @@ function get_articles(client, n) {
 	}else if(n <= 0){
 		n = 1;
 	}
-	db_news.find({}).sort({ createdAt: 1 }).skip(1).limit(n).exec( function (err, docs) {
-		client.emit('articles', docs);
+	db_news.find({}).sort({ createdAt: -1 }).limit(n).exec( function (err, docs) {
+		client.emit('articles', docs.reverse());
 		util.log("Handling get_articles: " + n)
 	});
 }
