@@ -28,7 +28,7 @@ function init(){
 	io.on('connection', function(client) {
 		util.log("Connection: " + client);
 		client.on('get_articles', function(data) {
-			get_articles(client, data.n);
+			get_articles(client, data.n, data.feed);
 		});
 
 		client.on('get_feeds_list', function() {
@@ -91,16 +91,24 @@ function check_feeds() {
 	util.log("Database Update Complete."); 
 }
 
-function get_articles(client, n) {
+function get_articles(client, n, feed) {
 	if(n >= MAX_NUMBER_REQUEST){
 		n = MAX_NUMBER_REQUEST;
 	}else if(n <= 0){
 		n = 1;
 	}
-	db_news.find({}).sort({ createdAt: -1 }).limit(n).exec( function (err, docs) {
-		client.emit('articles', docs.reverse());
-		util.log("Handling get_articles: " + n)
-	});
+
+	if(feed){
+		db_news.find({source_name: feed}).sort({ createdAt: -1 }).limit(n).exec( function (err, docs) {
+			client.emit('articles', docs.reverse());
+			util.log("Handling get_articles: " + feed);
+		});	
+	}else{
+		db_news.find({}).sort({ createdAt: -1 }).limit(n).exec( function (err, docs) {
+			client.emit('articles', docs.reverse());
+			util.log("Handling get_articles: " + n)
+		});
+	}
 }
 
 function get_feeds(client) {
