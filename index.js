@@ -26,6 +26,7 @@ function init(){
 	util.log("Server listening on port " + PORT);
 
 	io.on('connection', function(client) {
+		util.log("Connection: " + client);
 		client.on('get_articles', function(data) {
 			get_articles(client, data.n);
 		});
@@ -40,7 +41,7 @@ function init(){
 	});
 
 	/* Check feeds every 5min (300,000ms) 40min (2,400,000) */
-	setInterval(check_feeds, 2400000);
+	setInterval(check_feeds, 3000000);
 }
 
 function check_feeds() {
@@ -54,6 +55,7 @@ function check_feeds() {
 			(function(i) {
 				feed(feed_list[i].url, function(err, articles) {
 					if (err){
+						util.log("Error Accessing feed: " + feed_list[i].url);
 						util.log(err);
 						return;
 					}
