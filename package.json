@@ -1,6 +1,6 @@
 {
   "name": "port22v2",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "description": "Security News Feed",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,6 @@
   "dependencies": {
     "feed-read": "0.0.1",
     "nedb": "^1.5.1",
-    "socket.io": "^1.4.3",
     "mustache" : ""
   }
 }

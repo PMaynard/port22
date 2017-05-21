@@ -22,7 +22,7 @@ db_urls.ensureIndex({ fieldName: 'url',  unique: true }, function() {});
 function init(){
 	// /* Check feeds every 5min (300,000ms) 40min (2,400,000) */
 	dump_data();
-	// setInterval(check_feeds, 3000000);
+	setInterval(check_feeds, 3000000);
 }
 
 function dump_data() {
