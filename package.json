@@ -1,16 +1,18 @@
 {
   "name": "port22v2",
   "version": "0.0.0",
-  "description": "",
+  "description": "Security News Feed",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository" : "https://github.com/PMaynard/port22",
+  "author": "Pete",
   "license": "MIT",
   "dependencies": {
     "feed-read": "0.0.1",
     "nedb": "^1.5.1",
-    "socket.io": "^1.4.3"
+    "socket.io": "^1.4.3",
+    "mustache" : ""
   }
 }
