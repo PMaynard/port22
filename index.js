@@ -50,6 +50,10 @@ function init(){
 function dump_data() {
 	db_news.find({}).sort({ createdAt: -1 }).exec( function (err, docs) {
 		for(doc in docs){
+			fileLoc = "../port22-static/content/news/" + docs[doc]._id + ".md"
+			if(fs.existsSync(fileLoc)){
+				return;
+			}
 			var template = '\n\
 ---\n\
 title: "{{ title }}"\n\
@@ -78,14 +82,11 @@ db_createdAt: "{{ createdAt }}"\n\
 			var out = mst.render(template, data)
 			// util.log(docs)
 			util.log(out)
-			fileLoc = "../port22-static/content/news/" + docs[doc]._id + ".md"
-			if(!fs.existsSync(fileLoc)){
-				fs.writeFile(fileLoc, out, function(err) {
-				    if(err) {
-				        return util.log(err);
-				    }
-				});
-			}
+			fs.writeFile(fileLoc, out, function(err) {
+			    if(err) {
+			        return util.log(err);
+			    }
+			});
 		}
 	});
 }
