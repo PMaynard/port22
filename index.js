@@ -106,7 +106,6 @@ function check_feeds() {
 								}else if(err){
 									util.log("ERROR: [" + err.errorType + "] " + err.message);
 								}else{
-									io.emit('article', res);
 									util.log(res.title);
 								};
 							}); // End insert 
@@ -137,7 +136,6 @@ function add_feed(url, name){
 	db_urls.insert(feed, function (err, res) { });
 }
 
-//add_feed("http://www.darkreading.com/rss_simple.asp?f_n=644&f_ln=Attacks/Breaches", "Dark Reading - Attacks/Breaches")
-//add_feed("http://www.darkreading.com/rss_simple.asp?f_n=659&f_ln=Threat%20Intelligence", "Dark Reading - Threat Intelligence")
+//add_feed("https://lwn.net/headlines/rss", "The LWN.net")
 
 init();
