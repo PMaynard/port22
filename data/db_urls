@@ -1,12 +1,15 @@
 {"url":"https://ics-cert.us-cert.gov/alerts/alerts.xml","name":"ICS-Cert Alerts","_id":"2DuvOhtD4MjxRiKy","createdAt":{"$$date":1452515560294},"updatedAt":{"$$date":1452515560294}}
 {"url":"https://ics-cert.us-cert.gov/advisories/advisories.xml","name":"ICS-Cert Advisories","_id":"5DuvuIhiEL1ERybK","createdAt":{"$$date":1452515560294},"updatedAt":{"$$date":1452515560294}}
 {"url":"http://feeds.trendmicro.com/Anti-MalwareBlog?format=xml","name":"Trend Micro","_id":"Fang4veiiKqhVx4H","createdAt":{"$$date":1452515560291},"updatedAt":{"$$date":1452515560291}}
+{"url":"http://www.darkreading.com/rss_simple.asp?f_n=644&f_ln=Attacks/Breaches","name":"Dark Reading - Attacks/Breaches","_id":"FzFFlo33DOUJUmcu","createdAt":{"$$date":1484487903482},"updatedAt":{"$$date":1484487903482}}
 {"url":"http://krebsonsecurity.com/feed/","name":"Krebs on Security","_id":"Lc473KnbGFcuh5gg","createdAt":{"$$date":1452515560293},"updatedAt":{"$$date":1452515560293}}
 {"url":"http://feeds.feedburner.com/darknethackers","name":"Dark Net Hackers","_id":"LkUAXoFXt7gduga2","createdAt":{"$$date":1452515560293},"updatedAt":{"$$date":1452515560293}}
 {"url":"https://ics.sans.org/blog/feed/","name":"SANS ICS","_id":"N3npmp3Zr9yjZht5","createdAt":{"$$date":1453303757830},"updatedAt":{"$$date":1453303757830}}
 {"url":"https://labsblog.f-secure.com/feed/","name":"f-secure","_id":"OzWBbHwUYz9F3p7l","createdAt":{"$$date":1453289027155},"updatedAt":{"$$date":1453289027155}}
+{"url":"https://feeds.feedburner.com/TheHackersNews","name":"The Hackers News","_id":"Wt6AMAedPygEQWQj","createdAt":{"$$date":1474377882033},"updatedAt":{"$$date":1474377882033}}
 {"url":"https://www.fireeye.com/blog/threat-research/_jcr_content.feed","name":"Fire Eye Threat Research","_id":"b3Jppo2VbCEDcDSX","createdAt":{"$$date":1453305683590},"updatedAt":{"$$date":1453305683590}}
-{"url":"https://blogs.mcafee.com/category/mcafee-labs/?feed=rss2&cat=442","name":"McAfee Labs","_id":"eJSt3DrvVJjbqfQM","createdAt":{"$$date":1453301428332},"updatedAt":{"$$date":1453301428332}}
+{"url":"http://www.darkreading.com/rss_simple.asp?f_n=659&f_ln=Threat%20Intelligence","name":"Dark Reading - Threat Intelligence","_id":"gmjfnlVgI6U6IUFi","createdAt":{"$$date":1484487903484},"updatedAt":{"$$date":1484487903484}}
+{"url":"https://www.reddit.com/r/netsec/new.rss","name":"Reddit NetSec","_id":"nGNsXtpuBhACGrzL","createdAt":{"$$date":1467281864184},"updatedAt":{"$$date":1467281864184}}
 {"url":"https://securelist.com/feed/","name":"Secure List","_id":"p0zgWtHrRQs4RqBr","createdAt":{"$$date":1452515560293},"updatedAt":{"$$date":1452515560293}}
 {"url":"http://cryptanalysis.eu/blog/feed/","name":"Cryptanalysis","_id":"sOZK5jB3oEfyAQnl","createdAt":{"$$date":1452515560294},"updatedAt":{"$$date":1452515560294}}
 {"url":"https://feeds.feedburner.com/eset/blog?format=xml","name":"ESET","_id":"vSEyRsh1lqLQFVkd","createdAt":{"$$date":1453132418591},"updatedAt":{"$$date":1453132418591}}

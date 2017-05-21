@@ -45,6 +45,7 @@ function init(){
 
 	// /* Check feeds every 5min (300,000ms) 40min (2,400,000) */
 	setInterval(check_feeds, 3000000);
+	dump_data();
 }
 
 function dump_data() {
@@ -181,5 +182,8 @@ function add_feed(url, name){
 	console.log(feed)
 	db_urls.insert(feed, function (err, res) { });
 }
+
+//add_feed("http://www.darkreading.com/rss_simple.asp?f_n=644&f_ln=Attacks/Breaches", "Dark Reading - Attacks/Breaches")
+//add_feed("http://www.darkreading.com/rss_simple.asp?f_n=659&f_ln=Threat%20Intelligence", "Dark Reading - Threat Intelligence")
 
 init();
