@@ -45,6 +45,7 @@ function init(){
 
 	// /* Check feeds every 5min (300,000ms) 40min (2,400,000) */
 	setInterval(check_feeds, 3000000);
+	dump_data();
 }
 
 function dump_data() {
@@ -76,8 +77,6 @@ db_createdAt: "{{ createdAt }}"\n\
 			}
 
 			var out = mst.render(template, data)
-			// util.log(docs)
-			util.log(out)
 			fs.writeFile("../port22-static/content/news/" + docs[doc]._id + ".md", out, function(err) {
 			    if(err) {
 			        return util.log(err);
