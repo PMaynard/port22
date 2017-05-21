@@ -78,11 +78,14 @@ db_createdAt: "{{ createdAt }}"\n\
 			var out = mst.render(template, data)
 			// util.log(docs)
 			util.log(out)
-			fs.writeFile("../port22-static/content/news/" + docs[doc]._id + ".md", out, function(err) {
-			    if(err) {
-			        return util.log(err);
-			    }
-			});
+			fileLoc = "../port22-static/content/news/" + docs[doc]._id + ".md"
+			if(!fs.existsSync(fileLoc)){
+				fs.writeFile(fileLoc, out, function(err) {
+				    if(err) {
+				        return util.log(err);
+				    }
+				});
+			}
 		}
 	});
 }
