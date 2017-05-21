@@ -10,6 +10,9 @@ var io = require('socket.io')();
 var util = require("util");
 var feed = require("feed-read");
 
+var fs = require('fs');
+var mst = require('mustache');
+
 var MAX_NUMBER_REQUEST = 30;
 var PORT = 8010;
 
@@ -21,27 +24,67 @@ db_news.ensureIndex({ fieldName: 'source_url' }, err_constraints());
 db_urls.ensureIndex({ fieldName: 'url',  unique: true }, function() {});
 
 function init(){
-	io.serveClient(false);
-	var server = io.listen(PORT);
-	util.log("Server listening on port " + PORT);
+	// io.serveClient(false);
+	// var server = io.listen(PORT);
+	// util.log("Server listening on port " + PORT);
 
-	io.on('connection', function(client) {
-		util.log("Connection: " + client);
-		client.on('get_articles', function(data) {
-			get_articles(client, data.n, data.feed);
-		});
+	// io.on('connection', function(client) {
+	// 	util.log("Connection: " + client);
+	// 	client.on('get_articles', function(data) {
+	// 		get_articles(client, data.n, data.feed);
+	// 	});
 
-		client.on('get_feeds_list', function() {
-			get_feeds(client);
-		});
+	// 	client.on('get_feeds_list', function() {
+	// 		get_feeds(client);
+	// 	});
 
-		client.on("disconnect", function() {
-			util.log("Client disconnected: " + client.id);
-		});
-	});
+	// 	client.on("disconnect", function() {
+	// 		util.log("Client disconnected: " + client.id);
+	// 	});
+	// });
 
-	/* Check feeds every 5min (300,000ms) 40min (2,400,000) */
+	// /* Check feeds every 5min (300,000ms) 40min (2,400,000) */
 	setInterval(check_feeds, 3000000);
+}
+
+function dump_data() {
+	db_news.find({}).sort({ createdAt: -1 }).exec( function (err, docs) {
+		for(doc in docs){
+			var template = '\n\
+---\n\
+title: "{{ title }}"\n\
+link: "{{{ link }}}"\n\
+date: "{{{ published }}}"\n\
+source_url: "{{{ source_url }}}"\n\
+source_name: "{{ source_name }}"\n\
+\
+db_id: "{{ id }}"\n\
+db_createdAt: "{{ createdAt }}"\n\
+---\n\
+\n\
+{{{ content }}}\n'
+
+			var data = {
+				id: docs[doc]._id, 
+				createdAt: docs[doc].createdAt, 
+				title: docs[doc].title, 
+				link: docs[doc].link, 
+				content: docs[doc].content,
+				published: new Date(docs[doc].published).toISOString(),
+				source_url : docs[doc].source_url,
+				source_name : docs[doc].source_name
+			}
+
+			var out = mst.render(template, data)
+			// util.log(docs)
+			util.log(out)
+			fs.writeFile("../port22-static/content/news/" + docs[doc]._id + ".md", out, function(err) {
+			    if(err) {
+			        return util.log(err);
+			    }
+			});
+		}
+	});
 }
 
 function check_feeds() {
@@ -88,7 +131,8 @@ function check_feeds() {
 			})(i); // End function i
 		} // End Feed For
 	}); // End .find.
-	util.log("Database Update Complete."); 
+	util.log("Database Update Complete.");
+	dump_data();
 }
 
 function get_articles(client, n, feed) {
