@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="https://ics-cert.us-cert.gov/advisories/advisories.xml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ICS-CERT Advisory Feed</title>
+    <link>https://ics-cert.us-cert.gov/advisories/advisories.xml</link>
+    <description></description>
+    <language>en</language>
+     <atom:link href="https://ics-cert.us-cert.gov/advisories/advisories.xml" rel="self" type="application/rss+xml" />
+      <item>
+    <title>Miele Professional PG 85 Series</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-138-01</link>
+    <description>This advisory contains mitigation details for a path traversal vulnerability in Miele Professional’s PG 85 product series.</description>
+     <pubDate>Thu, 18 May 2017 10:05:40 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2480</guid>
+  </item>
+  <item>
+    <title>Schneider Electric Wonderware InduSoft Web Studio</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-138-02</link>
+    <description>This advisory contains mitigation details for an incorrect default permissions vulnerability in Schneider Electric’s Wonderware InduSoft Web Studio.</description>
+     <pubDate>Thu, 18 May 2017 10:00:58 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2484</guid>
+  </item>
+  <item>
+    <title>Detcon SiteWatch Gateway</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-136-01</link>
+    <description>This advisory contains mitigation details for authentication bypass and plaintext storage of a password vulnerabilities in Detcon’s SiteWatch Gateway.</description>
+     <pubDate>Tue, 16 May 2017 10:15:11 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2456</guid>
+  </item>
+  <item>
+    <title>Schneider Electric SoMachine HVAC</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-136-02</link>
+    <description>This advisory contains mitigation details for buffer overflow and DLL hijack vulnerabilities in Schneider Electric’s SoMachine HVAC.</description>
+     <pubDate>Tue, 16 May 2017 10:10:03 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2458</guid>
+  </item>
+  <item>
+    <title>Hanwha Techwin SRN-4000</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-136-03</link>
+    <description>This advisory contains mitigation details for an unauthenticated access vulnerability in Hanwha Techwin’s SRN-4000.</description>
+     <pubDate>Tue, 16 May 2017 10:05:19 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2460</guid>
+  </item>
+  <item>
+    <title>Schneider Electric VAMPSET</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-136-04</link>
+    <description>This advisory contains mitigation details for a memory corruption vulnerability in Schneider Electric’s VAMPSET.</description>
+     <pubDate>Tue, 16 May 2017 10:00:27 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2470</guid>
+  </item>
+  <item>
+    <title>Phoenix Contact GmbH mGuard</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-131-01</link>
+    <description>This advisory contains mitigation details for resource exhaustion and improper authentication vulnerabilities in Phoenix Contact GmbH’s mGuard network device.</description>
+     <pubDate>Thu, 11 May 2017 10:05:32 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2452</guid>
+  </item>
+  <item>
+    <title>Satel Iberia SenNet Data Logger and Electricity Meters</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-131-02</link>
+    <description>This advisory contains mitigation details for a command injection vulnerability in Satel Iberia’s SenNet Data Logger and Electricity Meters.</description>
+     <pubDate>Thu, 11 May 2017 10:00:35 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2448</guid>
+  </item>
+  <item>
+    <title>Siemens devices using the PROFINET Discovery and Configuration Protocol</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-129-01</link>
+    <description>This advisory contains mitigation details for a denial of service vulnerability in Siemens devices using the PROFINET Discovery and Configuration Protocol.</description>
+     <pubDate>Tue, 09 May 2017 10:15:57 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2435</guid>
+  </item>
+  <item>
+    <title>Siemens devices using the PROFINET Discovery and Configuration Protocol</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-129-02</link>
+    <description>This advisory contains mitigation details for denial of service vulnerabilities in Siemens devices using the PROFINET Discovery and Configuration Protocol.</description>
+     <pubDate>Tue, 09 May 2017 10:10:03 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2437</guid>
+  </item>
+  <item>
+    <title>Siemens SIMATIC WinCC and SIMATIC WinCC Runtime Professional</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-129-03</link>
+    <description>This advisory contains mitigation details for a denial of service vulnerability in the Siemens SIMATIC WinCC and SIMATIC WinCC Runtime Professional.</description>
+     <pubDate>Tue, 09 May 2017 10:05:53 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2441</guid>
+  </item>
+  <item>
+    <title>Rockwell Automation Stratix 5900</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-094-04</link>
+    <description>This advisory was originally posted to the NCCIC Portal on April 4, 2017, and is being released to the NCCIC/ICS-CERT web site. This advisory contains mitigation details for improper input validation, resource management errors, improper authentication, and path traversal vulnerabilities in Rockwell Automation’s Stratix 5900.</description>
+     <pubDate>Tue, 09 May 2017 10:00:54 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2445</guid>
+  </item>
+  <item>
+    <title>Hikvision Cameras</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-124-01</link>
+    <description>This advisory contains mitigation details for use of improper authentication and password in configuration file vulnerabilities in Hikvision’s cameras.</description>
+     <pubDate>Thu, 04 May 2017 10:15:49 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2417</guid>
+  </item>
+  <item>
+    <title>Dahua Technology Co., Ltd Digital Video Recorders and IP Cameras</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-124-02</link>
+    <description>This advisory contains mitigation details for use of password hash instead of password for authentication and password in configuration file vulnerabilities in Dahua Technology Co., Ltd digital video recorders and IP cameras.</description>
+     <pubDate>Thu, 04 May 2017 10:10:52 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2413</guid>
+  </item>
+  <item>
+    <title>Advantech WebAccess</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-124-03</link>
+    <description>This advisory contains mitigation details for an absolute path traversal vulnerability in Advantech’s WebAccess.</description>
+     <pubDate>Thu, 04 May 2017 10:05:24 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2427</guid>
+  </item>
+  <item>
+    <title>Rockwell Automation ControlLogix 5580 and CompactLogix 5380</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-094-05</link>
+    <description>This advisory was originally posted to the NCCIC Portal on April 4, 2017, and is being released to the NCCIC/ICS-CERT web site. This advisory contains mitigation details for a resource exhaustion vulnerability in Rockwell Automation&amp;#039;s ControlLogix 5580 and CompactLogix 5380.</description>
+     <pubDate>Thu, 04 May 2017 10:00:08 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2423</guid>
+  </item>
+  <item>
+    <title>Schneider Electric Wonderware Historian Client</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-122-01</link>
+    <description>This advisory contains mitigation details for an improper XML parser configuration vulnerability in Schneider Electric’s Wonderware Historian Client.</description>
+     <pubDate>Tue, 02 May 2017 10:10:16 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2400</guid>
+  </item>
+  <item>
+    <title>CyberVision Kaa IoT Platform</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-122-02</link>
+    <description>This advisory contains mitigation details for a code injection vulnerability in CyberVision’s Kaa IoT Platform.</description>
+     <pubDate>Tue, 02 May 2017 10:05:01 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2402</guid>
+  </item>
+  <item>
+    <title>Advantech B+B SmartWorx MESR901</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-122-03</link>
+    <description>This advisory contains mitigation details for a use of client-side authentication vulnerability in the Advantech B+B SmartWorx MESR901 Modbus gateway.</description>
+     <pubDate>Tue, 02 May 2017 10:00:27 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2406</guid>
+  </item>
+  <item>
+    <title>GE Multilin SR, UR, and URplus Protective Relays (Update A)</title>
+    <link>https://ics-cert.us-cert.gov/advisories/ICSA-17-117-01A</link>
+    <description>This updated advisory is a follow-up to the original advisory titled ICSA-17-117-01 GE Multilin SR Protective Relays that was published April 27, 2017, on the NCCIC/ICS-CERT web site. This updated advisory contains mitigation details for a weak cryptography for passwords vulnerability in GE&amp;#039;s Multilin SR protective relays.</description>
+     <pubDate>Thu, 27 Apr 2017 12:55:44 EDT</pubDate>
+ <dc:creator>Advisory Document</dc:creator>
+ <guid isPermaLink="false">/node/2396</guid>
+  </item>
+  </channel>
+</rss>

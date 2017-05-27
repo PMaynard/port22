@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF 
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns="http://purl.org/rss/1.0/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+>
+
+  <channel rdf:about="https://lwn.net/headlines/rss">
+    <title>LWN.net</title>
+    <link>https://lwn.net</link>
+    <description>
+ LWN.net is a comprehensive source of news and opinions from
+        and about the Linux community.  This is the main LWN.net feed,
+        listing all articles which are posted to the site front page.
+
+    </description>
+
+    <syn:updatePeriod>hourly</syn:updatePeriod>
+    <syn:updateFrequency>2</syn:updateFrequency>
+    <items>
+      <rdf:Seq>
+	<rdf:li resource="https://lwn.net/Articles/723422/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723368/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723317/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723334/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723312/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723070/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723216/rss" />
+	<rdf:li resource="https://lwn.net/Articles/722565/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723101/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723057/rss" />
+	<rdf:li resource="https://lwn.net/Articles/722804/rss" />
+	<rdf:li resource="https://lwn.net/Articles/722924/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723049/rss" />
+	<rdf:li resource="https://lwn.net/Articles/723048/rss" />
+	<rdf:li resource="https://lwn.net/Articles/722923/rss" />
+      
+      </rdf:Seq>
+    </items>
+
+  </channel>
+    <item rdf:about="https://lwn.net/Articles/723422/rss">
+      <title>Kernel prepatch 4.12-rc2</title>
+      <link>https://lwn.net/Articles/723422/rss</link>
+      <dc:date>2017-05-22T02:54:28+00:00</dc:date>
+      <dc:creator>corbet</dc:creator>
+      <description>
+      The &lt;a href=&quot;https://lwn.net/Articles/723421/&quot;&gt;4.12-rc2&lt;/a&gt; kernel prepatch is out.
+&quot;&lt;span&gt;I'm back on the usual Sunday schedule, and everything else looks
+fairly normal too. This rc2 is maybe a bit bigger than usual, but the
+whole merge window was bigger than most, so maybe it's just that. And
+it's not like it's huge&lt;/span&gt;&quot;.
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723368/rss">
+      <title>Stable kernels for everybody</title>
+      <link>https://lwn.net/Articles/723368/rss</link>
+      <dc:date>2017-05-20T14:59:38+00:00</dc:date>
+      <dc:creator>corbet</dc:creator>
+      <description>
+      The
+&lt;a href=&quot;https://lwn.net/Articles/723369/&quot;&gt;4.11.2&lt;/a&gt;,
+&lt;a href=&quot;https://lwn.net/Articles/723370/&quot;&gt;4.10.17&lt;/a&gt;,
+&lt;a href=&quot;https://lwn.net/Articles/723371/&quot;&gt;4.9.29&lt;/a&gt;,
+&lt;a href=&quot;https://lwn.net/Articles/723372/&quot;&gt;4.4.69&lt;/a&gt;, and
+&lt;a href=&quot;https://lwn.net/Articles/723373/&quot;&gt;3.18.54&lt;/a&gt;
+stable kernel updates have all been released with the usual set of
+important fixes.  Note that this is the final update for the 4.10 kernel.
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723317/rss">
+      <title>[$] Revisiting &quot;too small to fail&quot;</title>
+      <link>https://lwn.net/Articles/723317/rss</link>
+      <dc:date>2017-05-20T13:58:16+00:00</dc:date>
+      <dc:creator>corbet</dc:creator>
+      <description>
+      Back in 2014, the &lt;a href=&quot;https://lwn.net/Articles/627419/&quot;&gt;revelation&lt;/a&gt; that the
+kernel's
+memory-management subsystem would not allow relatively small allocation
+requests to fail created a bit of a stir.  The discussion has settled down
+since then, but the &quot;too small to fail&quot; rule still clearly creates a
+certain amount of confusion in the kernel community, as is evidenced by a
+recent discussion inspired by the 4.12 merge window.  It would appear that
+the rule remains in effect, but developers are asked to act as if it did not.
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723334/rss">
+      <title>zetcd: running ZooKeeper apps without ZooKeeper</title>
+      <link>https://lwn.net/Articles/723334/rss</link>
+      <dc:date>2017-05-19T23:15:14+00:00</dc:date>
+      <dc:creator>ris</dc:creator>
+      <description>
+      The CoreOS Blog &lt;a
+href=&quot;https://coreos.com/blog/introducing-zetcd&quot;&gt;introduces&lt;/a&gt; the first
+beta release, v0.0.1, of zetcd.  &quot;&lt;span&gt;Distributed systems commonly rely
+on a distributed consensus to coordinate work. Usually the systems
+providing distributed consensus guarantee information is delivered in order
+and never suffer split-brain conflicts. The usefulness, but rich design
+space, of such systems is evident by the proliferation of implementations;
+projects such as &lt;a
+href=&quot;https://research.google.com/archive/chubby.html&quot;&gt;chubby&lt;/a&gt;, &lt;a 
+href=&quot;https://zookeeper.apache.org/&quot;&gt;ZooKeeper&lt;/a&gt;, &lt;a
+href=&quot;https://github.com/coreos/etcd&quot;&gt;etcd&lt;/a&gt;, and &lt;a
+href=&quot;https://www.consul.io/&quot;&gt;consul&lt;/a&gt;, despite differing in philosophy
+and protocol, all focus on serving similar basic key-value primitives for
+distributed consensus. As part of making etcd the most appealing foundation
+for distributed systems, the etcd team developed a new proxy, zetcd, to
+serve ZooKeeper requests with an unmodified etcd cluster.&lt;/span&gt;&quot;
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723312/rss">
+      <title>Security updates for Friday</title>
+      <link>https://lwn.net/Articles/723312/rss</link>
+      <dc:date>2017-05-19T15:14:08+00:00</dc:date>
+      <dc:creator>ris</dc:creator>
+      <description>
+      Security updates have been issued by &lt;b&gt;Debian&lt;/b&gt; (deluge, jbig2dec, mysql-connector-java, and nss), &lt;b&gt;Fedora&lt;/b&gt; (jasper), &lt;b&gt;Mageia&lt;/b&gt; (mhonarc and radicale), &lt;b&gt;openSUSE&lt;/b&gt; (smb4k), &lt;b&gt;SUSE&lt;/b&gt; (kdelibs4 and rpcbind), and &lt;b&gt;Ubuntu&lt;/b&gt; (jasper and openjdk-7).
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723070/rss">
+      <title>[$] The trouble with SMC-R</title>
+      <link>https://lwn.net/Articles/723070/rss</link>
+      <dc:date>2017-05-18T19:52:25+00:00</dc:date>
+      <dc:creator>corbet</dc:creator>
+      <description>
+      Among &lt;a href=&quot;https://lwn.net/Articles/715161/&quot;&gt;the many features merged for the 4.11
+kernel&lt;/a&gt; was the &quot;shared memory communications over RDMA&quot; (SMC-R)
+protocol from IBM.  SMC-R is a
+high-speed data-center communications protocol that is claimed to be much
+more efficient than basic TCP sockets.  As it turns 
+out, though, the merging of this code was a surprise — and an unpleasant
+one at that — to a relevant segment of the kernel development community.
+This issue and the difficulties in resolving it are an indicator of how the
+increasingly fast-paced kernel development community can go off track.
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723216/rss">
+      <title>Security updates for Thursday</title>
+      <link>https://lwn.net/Articles/723216/rss</link>
+      <dc:date>2017-05-18T15:36:21+00:00</dc:date>
+      <dc:creator>ris</dc:creator>
+      <description>
+      Security updates have been issued by &lt;b&gt;Debian&lt;/b&gt; (shadow), &lt;b&gt;Fedora&lt;/b&gt; (rpcbind), &lt;b&gt;Gentoo&lt;/b&gt; (gst-plugins-bad and tomcat), &lt;b&gt;Red Hat&lt;/b&gt; (ansible and openshift-ansible, openstack-heat, and Red Hat OpenStack Platform director), and &lt;b&gt;Ubuntu&lt;/b&gt; (bash, FreeType, linux-aws, linux-gke, linux-raspi2, linux-snapdragon, and linux-lts-xenial).
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/722565/rss">
+      <title>[$] LWN.net Weekly Edition for May 18, 2017</title>
+      <link>https://lwn.net/Articles/722565/rss</link>
+      <dc:date>2017-05-18T00:17:22+00:00</dc:date>
+      <dc:creator>jake</dc:creator>
+      <description>
+      The LWN.net Weekly Edition for May 18, 2017 is available.
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723101/rss">
+      <title>What’s New in Android: O Developer Preview 2</title>
+      <link>https://lwn.net/Articles/723101/rss</link>
+      <dc:date>2017-05-17T21:00:08+00:00</dc:date>
+      <dc:creator>ris</dc:creator>
+      <description>
+      The Android Developers blog &lt;a
+href=&quot;https://android-developers.googleblog.com/2017/05/whats-new-in-android-o-developer.html&quot;&gt;looks
+at the latest&lt;/a&gt; Android O Developer Preview, which is now in public
+beta.  The developer preview also contains an early version of a project
+called Android Go which is built specifically for Android devices that have
+1GB or less of memory.
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723057/rss">
+      <title>[$] Restricting pathname resolution with AT_NO_JUMPS</title>
+      <link>https://lwn.net/Articles/723057/rss</link>
+      <dc:date>2017-05-17T20:35:24+00:00</dc:date>
+      <dc:creator>corbet</dc:creator>
+      <description>
+      On April 29, Al Viro &lt;a
+href=&quot;https://lwn.net/Articles/721443/&quot;&gt;posted a
+patch&lt;/a&gt; on the linux-api mailing list adding a new flag to be used in
+conjunction with the &lt;tt&gt;...at()&lt;/tt&gt; family of system calls. The flag is for
+containing pathname resolution to the same filesystem and subtree as
+the given starting point. This is a useful feature to have for
+implementing file I/O in programs that accept pathnames as untrusted user
+input.  The ensuing discussion made it clear that there were multiple use
+cases for such a feature, especially if the granularity of its restrictions
+could be increased.
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/722804/rss">
+      <title>[$] IPv6 segment routing</title>
+      <link>https://lwn.net/Articles/722804/rss</link>
+      <dc:date>2017-05-17T18:31:58+00:00</dc:date>
+      <dc:creator>corbet</dc:creator>
+      <description>
+      &lt;p&gt;In November 2016, a new networking feature, IPv6 segment
+routing (also known as &quot;IPv6 SR&quot; or &quot;SRv6&quot;), was &lt;a
+href=&quot;https://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git/commit/
+?id=5db5b395150186d4a177ebfa563894af302ab3ad&quot;&gt;merged&lt;/a&gt; into net-next and
+subsequently included in Linux 4.10. In
+this article, we explain this new feature, describe key elements of its
+implementation, and present a few performance measurements.&lt;/p&gt;
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/722924/rss">
+      <title>[$] Vulnerability hoarding and Wcry</title>
+      <link>https://lwn.net/Articles/722924/rss</link>
+      <dc:date>2017-05-17T18:06:12+00:00</dc:date>
+      <dc:creator>jake</dc:creator>
+      <description>
+      A virulent ransomware worm attacked a wide swath of Windows
+machines worldwide in mid-May.  The malware, known as Wcry, Wanna, or
+WannaCry, infected a number of systems at high-profile organizations as
+well as striking at critical pieces of the infrastructure—like hospitals, banks,
+and train stations.  While the threat seems to have largely abated—for
+now—the origin of some of its code, which is apparently the US National Security
+Agency (NSA), should give one pause.
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723049/rss">
+      <title>openSUSE Leap 42.1 has reached end of SUSE support</title>
+      <link>https://lwn.net/Articles/723049/rss</link>
+      <dc:date>2017-05-17T15:53:52+00:00</dc:date>
+      <dc:creator>ris</dc:creator>
+      <description>
+      SUSE sponsored maintenance of openSUSE Leap 42.1 has ended.  &quot;&lt;span&gt;The
+currently maintained stable release is openSUSE Leap 42.2, which will be
+maintained until the Q2/2018.&lt;/span&gt;&quot;
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/723048/rss">
+      <title>Security updates for Wednesday</title>
+      <link>https://lwn.net/Articles/723048/rss</link>
+      <dc:date>2017-05-17T15:46:01+00:00</dc:date>
+      <dc:creator>ris</dc:creator>
+      <description>
+      Security updates have been issued by &lt;b&gt;Arch Linux&lt;/b&gt; (libplist), &lt;b&gt;Debian&lt;/b&gt; (mysql-connector-java), &lt;b&gt;Fedora&lt;/b&gt; (jasper, kdelibs, lxterminal, menu-cache, pcmanfm, and postgresql), &lt;b&gt;openSUSE&lt;/b&gt; (qemu), &lt;b&gt;Slackware&lt;/b&gt; (freetype and kdelibs), &lt;b&gt;SUSE&lt;/b&gt; (ghostscript-library, libtirpc, and mariadb), and &lt;b&gt;Ubuntu&lt;/b&gt; (ghostscript, kernel, linux, linux-raspi2, linux-hwe, openjdk-7, qemu, shadow, and thunderbird).
+
+      
+      </description>
+    </item>
+    <item rdf:about="https://lwn.net/Articles/722923/rss">
+      <title>[$] Entering the mosh pit</title>
+      <link>https://lwn.net/Articles/722923/rss</link>
+      <dc:date>2017-05-16T23:53:07+00:00</dc:date>
+      <dc:creator>corbet</dc:creator>
+      <description>
+      For some years now, your editor has heard glowing reviews of &lt;a
+href=&quot;https://mosh.org/&quot;&gt;Mosh&lt;/a&gt; — the &quot;mobile shell&quot; — as a replacement
+for SSH.  The Mosh developers make a number of claims about its
+reconnection ability, performance, and security; at least some of those are
+relatively easily testable.  After a bit of moshing, a few clear
+conclusions have come to the fore.
+
+      
+      </description>
+    </item>
+</rdf:RDF>
